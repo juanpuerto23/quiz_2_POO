@@ -2,31 +2,31 @@ package modelo;
 
 public class EmpresaAutomotriz 
 {
-    private static final int SALARIO_MINIMO = 1000000;
-    private int nominaEmpresa;
+    //---------------------
+    //-----Constantes------
+    //---------------------
+    public final static int NUMERO_EMPLEADOS = 10;
 
+    //---------------------
+    //------Atributos------
+    //---------------------
+    private Empleado[] empleados;
+
+    //---------------------
+    //------Metodos--------
+    //---------------------
     public EmpresaAutomotriz()
     {
-        this.nominaEmpresa = 0;
+        empleados = new Empleado[NUMERO_EMPLEADOS];
     }
 
-    public EmpresaAutomotriz(int nominaEmpresa)
-    {
-        this.nominaEmpresa = nominaEmpresa;
-    }
-
-    public int  getnominaEmpresa()
-    {
-        return nominaEmpresa;
-    }
-
-    public void setnominaEmpresa(int nominaEmpresa)
-    {
-        this.nominaEmpresa = nominaEmpresa;
-    }
-
-    public static Empleados[] crearListaEmpleados(int numeroEmpleados)
-    {
-        return new Empleados[numeroEmpleados];
+    private double calcularNomina()
+    {   
+        double totalNomina = 0;
+        for(int i=0; i<empleados.length; i++)
+        {
+            totalNomina = totalNomina +  empleados[i].getSueldo(); 
+        }
+        return totalNomina;
     }
 }
